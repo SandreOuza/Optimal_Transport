@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
 
 
 class testclass:
@@ -46,7 +47,8 @@ class testclass:
         path = self.impdir + self.ftype + str(self.index) + field + '.txt'
         self.field = np.loadtxt(open(path,'r'))
     def plot_tempstream(self):
-        
+        #other good colors for temp include plt.cm.coolwarm and
+        matplotlib.rcParams['contour.negative_linestyle'] = 'solid'
         path = self.impdir + self.ftype + str(self.index) + '_theta' + '.txt'
         tmp = np.loadtxt(open(path,'r'))
         thetafield = tmp.reshape(self.zdim, self.xdim)
